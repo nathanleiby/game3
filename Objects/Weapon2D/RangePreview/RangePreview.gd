@@ -1,9 +1,9 @@
-extends Sprite
+extends Sprite2D
 
-export var radius := 100.0
-export var tween_duration := 0.5
+@export var radius := 100.0
+@export var tween_duration := 0.5
 
-onready var _tween := $Tween
+@onready var _tween := $Tween
 
 
 func appear() -> void:

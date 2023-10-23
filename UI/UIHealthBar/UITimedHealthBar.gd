@@ -1,6 +1,6 @@
 extends ProgressBar
 
-onready var _timer := $Timer
+@onready var _timer := $Timer
 
 
 func _on_value_changed(value: float) -> void:

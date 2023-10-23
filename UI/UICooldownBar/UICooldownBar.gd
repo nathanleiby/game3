@@ -1,11 +1,11 @@
 extends Control
 
 
-export var gradient: Gradient
+@export var gradient: Gradient
 
-onready var _progress := $TextureProgress
-onready var _animator := $AnimationPlayer
-onready var _timer := $Timer
+@onready var _progress := $TextureProgressBar
+@onready var _animator := $AnimationPlayer
+@onready var _timer := $Timer
 
 
 func _ready() -> void:
@@ -15,7 +15,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	_progress.value = _timer.wait_time - _timer.time_left
-	_progress.tint_progress = gradient.interpolate(_progress.ratio)
+	_progress.tint_progress = gradient.sample(_progress.ratio)
 
 
 func start(time: float) -> void:

@@ -1,13 +1,13 @@
 extends Control
 
 
-onready var _label: Label = $Label
+@onready var _label: Label = $Label
 
-var player: Player setget set_player
+var player: Player: set = set_player
 
 func set_player(new_player: Player) -> void:
 	player = new_player
-	player.connect("gold_changed", self, "_update_gold_amount")
+	player.connect("gold_changed", Callable(self, "_update_gold_amount"))
 	_update_gold_amount(player.gold)
 
 

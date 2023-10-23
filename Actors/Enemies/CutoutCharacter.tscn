@@ -1,13 +1,13 @@
 [gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://sprite-sheet.svg" type="Texture" id=1]
-[ext_resource path="res://Actors/Enemies/particle.svg" type="Texture" id=3]
+[ext_resource path="res://sprite-sheet.svg" type="Texture2D" id=1]
+[ext_resource path="res://Actors/Enemies/particle.svg" type="Texture2D" id=3]
 
 [sub_resource type="Gradient" id=1]
-offsets = PoolRealArray( 0, 0.987578 )
-colors = PoolColorArray( 0.921569, 0.337255, 0.294118, 1, 0.921569, 0.337255, 0.294118, 0 )
+offsets = PackedFloat32Array( 0, 0.987578 )
+colors = PackedColorArray( 0.921569, 0.337255, 0.294118, 1, 0.921569, 0.337255, 0.294118, 0 )
 
-[sub_resource type="GradientTexture" id=2]
+[sub_resource type="GradientTexture2D" id=2]
 gradient = SubResource( 1 )
 
 [sub_resource type="Curve" id=3]
@@ -16,7 +16,7 @@ _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
 [sub_resource type="CurveTexture" id=4]
 curve = SubResource( 3 )
 
-[sub_resource type="ParticlesMaterial" id=5]
+[sub_resource type="ParticleProcessMaterial" id=5]
 trail_divisor = 4
 emission_shape = 1
 emission_sphere_radius = 17.76
@@ -39,8 +39,8 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.4 ),
-"transitions": PoolRealArray( 0.5, 1 ),
+"times": PackedFloat32Array( 0, 0.4 ),
+"transitions": PackedFloat32Array( 0.5, 1 ),
 "update": 0,
 "values": [ Vector2( -18.81, -15.7232 ), Vector2( -28.1644, -13.7187 ) ]
 }
@@ -51,8 +51,8 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.4 ),
-"transitions": PoolRealArray( 0.5, 1 ),
+"times": PackedFloat32Array( 0, 0.4 ),
+"transitions": PackedFloat32Array( 0.5, 1 ),
 "update": 0,
 "values": [ Vector2( 0.605846, 0.605846 ), Vector2( 0.550675, 0.550675 ) ]
 }
@@ -63,8 +63,8 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 0.5, 1 ),
+"times": PackedFloat32Array( 0, 0.5 ),
+"transitions": PackedFloat32Array( 0.5, 1 ),
 "update": 0,
 "values": [ Vector2( -35.2691, -1.31462 ), Vector2( -44.6235, -3.09641 ) ]
 }
@@ -75,8 +75,8 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 0.5, 1 ),
+"times": PackedFloat32Array( 0, 0.5 ),
+"transitions": PackedFloat32Array( 0.5, 1 ),
 "update": 0,
 "values": [ Vector2( 0.486181, 0.486181 ), Vector2( 0.341358, 0.341358 ) ]
 }
@@ -87,8 +87,8 @@ tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 0, 0.3 ),
-"transitions": PoolRealArray( 0.5, 1 ),
+"times": PackedFloat32Array( 0, 0.3 ),
+"transitions": PackedFloat32Array( 0.5, 1 ),
 "update": 0,
 "values": [ Vector2( -17.1263, 11.3562 ), Vector2( -28.0398, 10.9107 ) ]
 }
@@ -99,32 +99,32 @@ tracks/5/loop_wrap = true
 tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/keys = {
-"times": PoolRealArray( 0, 0.3 ),
-"transitions": PoolRealArray( 0.5, 1 ),
+"times": PackedFloat32Array( 0, 0.3 ),
+"transitions": PackedFloat32Array( 0.5, 1 ),
 "update": 0,
 "values": [ Vector2( 0.738769, 0.738769 ), Vector2( 0.616142, 0.616142 ) ]
 }
 tracks/6/type = "value"
-tracks/6/path = NodePath("./Sprite:position")
+tracks/6/path = NodePath("./Sprite2D:position")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
 tracks/6/enabled = true
 tracks/6/keys = {
-"times": PoolRealArray( 0, 0.6 ),
-"transitions": PoolRealArray( 0.5, 1 ),
+"times": PackedFloat32Array( 0, 0.6 ),
+"transitions": PackedFloat32Array( 0.5, 1 ),
 "update": 0,
 "values": [ Vector2( 0, 0 ), Vector2( -4.67722, 0 ) ]
 }
 tracks/7/type = "value"
-tracks/7/path = NodePath("./Sprite:scale")
+tracks/7/path = NodePath("./Sprite2D:scale")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/imported = false
 tracks/7/enabled = true
 tracks/7/keys = {
-"times": PoolRealArray( 0, 0.6 ),
-"transitions": PoolRealArray( 0.5, 1 ),
+"times": PackedFloat32Array( 0, 0.6 ),
+"transitions": PackedFloat32Array( 0.5, 1 ),
 "update": 0,
 "values": [ Vector2( 1, 1 ), Vector2( 0.940727, 0.940727 ) ]
 }
@@ -135,8 +135,8 @@ tracks/8/loop_wrap = true
 tracks/8/imported = false
 tracks/8/enabled = true
 tracks/8/keys = {
-"times": PoolRealArray( 0.00274062, 0.6 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PackedFloat32Array( 0.00274062, 0.6 ),
+"transitions": PackedFloat32Array( 1, 1 ),
 "update": 0,
 "values": [ Vector2( 1, 1 ), Vector2( 0.875101, 0.875101 ) ]
 }
@@ -144,7 +144,7 @@ tracks/8/keys = {
 [node name="CutoutCharacter" type="Node2D"]
 position = Vector2( 12, -4 )
 
-[node name="Particles2D" type="Particles2D" parent="."]
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 position = Vector2( -10.5112, 0 )
 amount = 32
 lifetime = 4.0
@@ -152,13 +152,13 @@ local_coords = false
 process_material = SubResource( 5 )
 texture = ExtResource( 3 )
 
-[node name="Sprite" type="Sprite" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="."]
 use_parent_material = true
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 320, 64, 57, 57 )
 
-[node name="Sprite2" type="Sprite" parent="."]
+[node name="Sprite2" type="Sprite2D" parent="."]
 use_parent_material = true
 position = Vector2( -18.81, -15.7232 )
 scale = Vector2( 0.605846, 0.605846 )
@@ -166,7 +166,7 @@ texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 320, 64, 57, 57 )
 
-[node name="Sprite3" type="Sprite" parent="."]
+[node name="Sprite3" type="Sprite2D" parent="."]
 use_parent_material = true
 position = Vector2( -17.1263, 11.3562 )
 scale = Vector2( 0.738769, 0.738769 )
@@ -174,7 +174,7 @@ texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 320, 64, 57, 57 )
 
-[node name="Sprite4" type="Sprite" parent="."]
+[node name="Sprite4" type="Sprite2D" parent="."]
 use_parent_material = true
 position = Vector2( -35.2691, -1.31462 )
 scale = Vector2( 0.486181, 0.486181 )
@@ -182,7 +182,7 @@ texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 320, 64, 57, 57 )
 
-[node name="Sprite5" type="Sprite" parent="."]
+[node name="Sprite5" type="Sprite2D" parent="."]
 use_parent_material = true
 position = Vector2( 10.1622, -1.53735 )
 rotation = -1.57079
