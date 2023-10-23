@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://cj4ivtumsselw"]
+
+[ext_resource type="PackedScene" uid="uid://b6hkhjgi4n5ia" path="res://Objects/HitBox/HitBoxArea2D.tscn" id="1_pl4tg"]
+[ext_resource type="PackedScene" uid="uid://c70xqlwusyym5" path="res://Objects/HurtBox/hurt_box_area_2d.tscn" id="2_f08e7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yfdpk"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jv6qo"]
+
+[node name="HitSystemTest" type="Node2D"]
+
+[node name="HitBoxArea2D" parent="." instance=ExtResource("1_pl4tg")]
+team = 0
+damage = 10
+can_hit_multiple = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBoxArea2D"]
+position = Vector2(10, 10)
+shape = SubResource("RectangleShape2D_yfdpk")
+
+[node name="HurtBoxArea2D" parent="." instance=ExtResource("2_f08e7")]
+team = 1
+armor = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBoxArea2D"]
+position = Vector2(23, 22)
+shape = SubResource("CircleShape2D_jv6qo")
