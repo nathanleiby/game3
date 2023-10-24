@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://ba7xhlmiy2p2l"]
+
+[ext_resource type="Texture2D" uid="uid://oj3bf4vusxdi" path="res://sprite-sheet.svg" id="1_83s5r"]
+[ext_resource type="PackedScene" uid="uid://bpi1ucywaplpt" path="res://Objects/Weapon2D/Weapon2D.tscn" id="2_erjuy"]
+
+[node name="Tower" type="Node2D"]
+
+[node name="BaseSprite" type="Sprite2D" parent="."]
+position = Vector2(4, 0)
+texture = ExtResource("1_83s5r")
+offset = Vector2(32, 32)
+region_enabled = true
+region_rect = Rect2(192, 64, 73, 64)
+
+[node name="Weapon2D" parent="." instance=ExtResource("2_erjuy")]
+position = Vector2(36, 38)
+
+[node name="GlassSprite" type="Sprite2D" parent="."]
+position = Vector2(4, 6)
+texture = ExtResource("1_83s5r")
+offset = Vector2(32, 32)
+region_enabled = true
+region_rect = Rect2(272, 89, 26, 27)
