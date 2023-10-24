@@ -31,6 +31,7 @@ func _on_mouse_entered():
 	set_process_unhandled_input(false)
 
 func _on_mouse_exited():
+	# only process unhandled input if (1) we've exited the node (2) it is currently selected
 	set_process_unhandled_input(selected)
 	
 func _unhandled_input(event: InputEvent):

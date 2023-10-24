@@ -1,3 +1,5 @@
+class_name UICooldownBar 
+
 extends Control
 
 
@@ -22,7 +24,8 @@ func start(time: float) -> void:
 	_timer.start(time)
 	_progress.max_value = time
 	_progress.value = 0.0
-	_animator.playback_speed = 1.0/time
+	# _animator.playback_speed = 1.0/time
+	_animator.speed_scale = 1.0/time
 	_animator.play("Spin")
 	set_process(true)
 	show()

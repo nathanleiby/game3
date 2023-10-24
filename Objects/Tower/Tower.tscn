@@ -1,9 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://ba7xhlmiy2p2l"]
+[gd_scene load_steps=8 format=3 uid="uid://ba7xhlmiy2p2l"]
 
 [ext_resource type="Texture2D" uid="uid://oj3bf4vusxdi" path="res://sprite-sheet.svg" id="1_83s5r"]
+[ext_resource type="Script" path="res://Objects/Tower/Tower.gd" id="1_ftr77"]
 [ext_resource type="PackedScene" uid="uid://bpi1ucywaplpt" path="res://Objects/Weapon2D/Weapon2D.tscn" id="2_erjuy"]
+[ext_resource type="PackedScene" uid="uid://gtuwh7u5x2j6" path="res://Objects/SelectableArea2D/selectable_area_2d.tscn" id="3_5bpj3"]
+[ext_resource type="PackedScene" uid="uid://dei45dkarmwdr" path="res://UI/UIUnit/UIUnit.tscn" id="4_xci8x"]
+[ext_resource type="PackedScene" uid="uid://bqej7jj3kkmig" path="res://UI/UICooldownBar/UICooldownBar.tscn" id="6_qqgg1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uefl6"]
+size = Vector2(64, 64)
 
 [node name="Tower" type="Node2D"]
+script = ExtResource("1_ftr77")
 
 [node name="BaseSprite" type="Sprite2D" parent="."]
 position = Vector2(4, 0)
@@ -21,3 +29,25 @@ texture = ExtResource("1_83s5r")
 offset = Vector2(32, 32)
 region_enabled = true
 region_rect = Rect2(272, 89, 26, 27)
+
+[node name="SelectableArea2D" parent="." instance=ExtResource("3_5bpj3")]
+position = Vector2(32, 32)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SelectableArea2D"]
+shape = SubResource("RectangleShape2D_uefl6")
+
+[node name="Interface" parent="." instance=ExtResource("4_xci8x")]
+
+[node name="SellButton" type="Button" parent="Interface"]
+layout_mode = 0
+offset_left = -40.0
+offset_top = 72.0
+offset_right = 104.0
+offset_bottom = 101.0
+text = "Sell"
+
+[node name="UICooldownBar" parent="." instance=ExtResource("6_qqgg1")]
+
+[connection signal="fired" from="Weapon2D" to="." method="_on_weapon_2d_fired"]
+[connection signal="selection_changed" from="SelectableArea2D" to="." method="_on_selectable_area_2d_selection_changed"]
+[connection signal="pressed" from="Interface/SellButton" to="." method="_on_sell_button_pressed"]

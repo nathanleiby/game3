@@ -1,81 +1,83 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=3 uid="uid://bqej7jj3kkmig"]
 
-[ext_resource path="res://UI/UICooldownBar/cooldown-bar-progress.png" type="Texture2D" id=1]
-[ext_resource path="res://UI/UICooldownBar/cooldown-bar-over.png" type="Texture2D" id=2]
-[ext_resource path="res://UI/UICooldownBar/clock.png" type="Texture2D" id=3]
-[ext_resource path="res://UI/UICooldownBar/clock-tic.png" type="Texture2D" id=4]
-[ext_resource path="res://UI/UICooldownBar/cooldown-bar-under.png" type="Texture2D" id=5]
-[ext_resource path="res://UI/UICooldownBar/UICooldownBar.gd" type="Script" id=6]
+[ext_resource type="Texture2D" uid="uid://8ol171twp6mk" path="res://UI/UICooldownBar/cooldown-bar-progress.png" id="1"]
+[ext_resource type="Texture2D" uid="uid://bmeyfqqm1fyu" path="res://UI/UICooldownBar/cooldown-bar-over.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://dekc57xdjo5gw" path="res://UI/UICooldownBar/clock.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://d1bl1cb02gqdp" path="res://UI/UICooldownBar/clock-tic.png" id="4"]
+[ext_resource type="Texture2D" uid="uid://dd6ndoibyk8w5" path="res://UI/UICooldownBar/cooldown-bar-under.png" id="5"]
+[ext_resource type="Script" path="res://UI/UICooldownBar/UICooldownBar.gd" id="6"]
 
-[sub_resource type="Gradient" id=1]
-offsets = PackedFloat32Array( 0.254682, 0.520599, 0.846442, 1 )
-colors = PackedColorArray( 0.921569, 0.337255, 0.294118, 1, 1, 0.568627, 0.4, 1, 1, 0.709804, 0.439216, 1, 1, 1, 1, 1 )
+[sub_resource type="Gradient" id="1"]
+offsets = PackedFloat32Array(0.254682, 0.520599, 0.846442, 1)
+colors = PackedColorArray(0.921569, 0.337255, 0.294118, 1, 1, 0.568627, 0.4, 1, 1, 0.709804, 0.439216, 1, 1, 1, 1, 1)
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id="2"]
 resource_name = "Finish"
 length = 0.2
 tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/path = NodePath(".:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
 tracks/0/keys = {
-"times": PackedFloat32Array( 0.2 ),
-"transitions": PackedFloat32Array( 1 ),
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ false ]
+"values": [false]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id="3"]
 tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/path = NodePath("Clock/Tic:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
 tracks/0/keys = {
-"times": PackedFloat32Array( 0, 1 ),
-"transitions": PackedFloat32Array( 1, 1 ),
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [ 0.0, 360.0 ]
+"values": [0.0, 360.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_y0lss"]
+_data = {
+"Finish": SubResource("2"),
+"Spin": SubResource("3")
 }
 
 [node name="UICooldownBar" type="Control"]
 visible = false
+layout_mode = 3
+anchors_preset = 0
 offset_right = 144.0
 offset_bottom = 24.0
-script = ExtResource( 6 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-gradient = SubResource( 1 )
+script = ExtResource("6")
+gradient = SubResource("1")
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+layout_mode = 0
 anchor_left = 0.222
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 0.0319977
 step = 0.01
-texture_under = ExtResource( 5 )
-texture_over = ExtResource( 2 )
-texture_progress = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+texture_under = ExtResource("5")
+texture_over = ExtResource("2")
+texture_progress = ExtResource("1")
 
 [node name="Clock" type="TextureRect" parent="."]
+layout_mode = 0
 anchor_right = 0.167
 anchor_bottom = 1.0
 offset_right = -0.0480022
-texture = ExtResource( 3 )
-expand = true
+texture = ExtResource("3")
+expand_mode = 1
 stretch_mode = 6
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Tic" type="TextureRect" parent="Clock"]
+layout_mode = 0
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -84,17 +86,15 @@ offset_left = -2.0
 offset_top = -8.0
 offset_right = 2.0
 rotation = 252.0
-pivot_offset = Vector2( 2, 8 )
-texture = ExtResource( 4 )
-expand = true
+pivot_offset = Vector2(2, 8)
+texture = ExtResource("4")
+expand_mode = 1
 stretch_mode = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Finish = SubResource( 2 )
-anims/Spin = SubResource( 3 )
+libraries = {
+"": SubResource("AnimationLibrary_y0lss")
+}
 
 [node name="Timer" type="Timer" parent="."]
 

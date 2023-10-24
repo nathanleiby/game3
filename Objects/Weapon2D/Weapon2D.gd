@@ -3,6 +3,8 @@ extends Node2D
 
 const TESTING := false # Toggle to true and play this scene to explore shooting and animations
 
+signal fired
+
 @export var bullet_scene: PackedScene
 
 ## range of the weapon in pixels

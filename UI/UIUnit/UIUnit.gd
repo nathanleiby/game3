@@ -1,3 +1,4 @@
+class_name UIUnit
 extends Control
 
 
