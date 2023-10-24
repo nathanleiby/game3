@@ -1,12 +1,10 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=3 format=3 uid="uid://cp1gm64jugnge"]
 
-[ext_resource path="res://Objects/Weapon2D/RangePreview/range-preview.svg" type="Texture2D" id=1]
-[ext_resource path="res://Objects/Weapon2D/RangePreview/RangePreview.gd" type="Script" id=2]
+[ext_resource type="Texture2D" uid="uid://b4usynojqpx6x" path="res://Objects/Weapon2D/RangePreview/range-preview.svg" id="1"]
+[ext_resource type="Script" path="res://Objects/Weapon2D/RangePreview/RangePreview.gd" id="2"]
 
 [node name="RangePreview" type="Sprite2D"]
-modulate = Color( 1, 1, 1, 0 )
-texture = ExtResource( 1 )
-script = ExtResource( 2 )
+modulate = Color(1, 1, 1, 0)
+texture = ExtResource("1")
+script = ExtResource("2")
 radius = 50.0
-
-[node name="Tween" type="Tween" parent="."]

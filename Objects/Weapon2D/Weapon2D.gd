@@ -1,10 +1,12 @@
 class_name Weapon2D
 extends Node2D
 
+const TESTING := false # Toggle to true and play this scene to explore shooting and animations
+
 @export var bullet_scene: PackedScene
 
 ## range of the weapon in pixels
-@export var fire_range: int:
+@export var fire_range := 200:
 	set(value):
 		# synchronize fire range with range area's radius
 		fire_range = value
@@ -14,8 +16,6 @@ extends Node2D
 		_range_shape.radius = value
 	get:
 		return fire_range
-
-const DEFAULT_FIRE_RANGE := 200		
 
 ## cooldown in seconds to fire again
 @export var fire_cooldown := 1.0
@@ -30,10 +30,12 @@ const DEFAULT_FIRE_RANGE := 200
 @onready var _range_area := $RangeArea2D
 @onready var _animation_player := $AnimationPlayer
 @onready var _range_shape: CircleShape2D = $RangeArea2D/Circle2D.shape
+@onready var _range_preview: RangePreview = $RangePreview
 
 func _ready():
 	# trigger the setter, which also updates the _range_shape
 	fire_range = fire_range
+	show_range()
 
 func shoot_at(target_position: Vector2):
 	look_at(target_position)
@@ -51,6 +53,17 @@ func _physics_process(_delta: float):
 	# Is weapon ready to shoot?
 	if not _cooldown_timer.is_stopped():
 		return
+		
+	if TESTING:
+		if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+			shoot_at(get_global_mouse_position())
+		
+		if Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
+			if _range_preview.modulate.a == 0:
+				_range_preview.appear()
+			if _range_preview.modulate.a == 1.0:
+				_range_preview.disappear()
+		return
 	
 	# Are there any targets in the Area2D? 
 	var targets: Array = _range_area.get_overlapping_areas()
@@ -61,4 +74,11 @@ func _physics_process(_delta: float):
 	var target: Node2D = targets[0]
 	shoot_at(target.global_position)
 	
-	
+
+
+func show_range():
+	_range_preview.radius = fire_range
+	_range_preview.appear()
+
+func hide_range():
+	_range_preview.disappear()

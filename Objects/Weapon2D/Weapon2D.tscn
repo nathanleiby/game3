@@ -1,7 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://bpi1ucywaplpt"]
+[gd_scene load_steps=8 format=3 uid="uid://bpi1ucywaplpt"]
 
 [ext_resource type="Texture2D" uid="uid://oj3bf4vusxdi" path="res://sprite-sheet.svg" id="1_jq50j"]
 [ext_resource type="Script" path="res://Objects/Weapon2D/Weapon2D.gd" id="1_ws3ny"]
+[ext_resource type="PackedScene" uid="uid://c344e70v616l1" path="res://Objects/Weapon2D/Bullets/Bullet.tscn" id="2_00uel"]
+[ext_resource type="PackedScene" uid="uid://cp1gm64jugnge" path="res://Objects/Weapon2D/RangePreview/RangePreview.tscn" id="3_so6t4"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nk4w6"]
 resource_local_to_scene = true
@@ -30,11 +32,13 @@ _data = {
 
 [node name="Weapon2D" type="Node2D"]
 script = ExtResource("1_ws3ny")
+bullet_scene = ExtResource("2_00uel")
 
 [node name="BulletSpawnPosition2D" type="Node2D" parent="."]
 position = Vector2(64, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(10, 2.08165e-12)
 texture = ExtResource("1_jq50j")
 offset = Vector2(40, 2.08165e-12)
 region_enabled = true
@@ -52,3 +56,5 @@ one_shot = true
 libraries = {
 "": SubResource("AnimationLibrary_5pg4i")
 }
+
+[node name="RangePreview" parent="." instance=ExtResource("3_so6t4")]
