@@ -1,0 +1,46 @@
+[gd_scene load_steps=9 format=3 uid="uid://eeq16eroemwx"]
+
+[ext_resource type="PackedScene" uid="uid://b1pcns1wdyhe0" path="res://Objects/PlayerBase/CutoutPlayerBase.tscn" id="1_w8dkp"]
+[ext_resource type="Script" path="res://Objects/PlayerBase/PlayerBase.gd" id="1_w8676"]
+[ext_resource type="PackedScene" uid="uid://c70xqlwusyym5" path="res://Objects/HurtBox/hurt_box_area_2d.tscn" id="2_nyjqg"]
+[ext_resource type="PackedScene" uid="uid://dei45dkarmwdr" path="res://UI/UIUnit/UIUnit.tscn" id="3_ayv24"]
+[ext_resource type="PackedScene" path="res://UI/UIHealthBar/UIHealthBar.tscn" id="4_38wwv"]
+[ext_resource type="PackedScene" uid="uid://gtuwh7u5x2j6" path="res://Objects/SelectableArea2D/selectable_area_2d.tscn" id="5_1lesw"]
+[ext_resource type="PackedScene" path="res://UI/UIHealthBar/UITimedHealthBar.tscn" id="7_tw32q"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ca6hw"]
+size = Vector2(128, 64)
+
+[node name="PlayerBase" type="Node2D"]
+script = ExtResource("1_w8676")
+
+[node name="Sprites" parent="." instance=ExtResource("1_w8dkp")]
+
+[node name="HurtBoxArea2D" parent="." instance=ExtResource("2_nyjqg")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBoxArea2D"]
+shape = SubResource("RectangleShape2D_ca6hw")
+
+[node name="SelectableArea2D" parent="." instance=ExtResource("5_1lesw")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SelectableArea2D"]
+shape = SubResource("RectangleShape2D_ca6hw")
+
+[node name="Interface" parent="." instance=ExtResource("3_ayv24")]
+visible = false
+
+[node name="HealthBar" parent="Interface" instance=ExtResource("4_38wwv")]
+layout_mode = 0
+offset_left = -85.5556
+offset_top = -90.0
+offset_right = 86.4444
+offset_bottom = -63.0
+
+[node name="HealthBar" parent="." instance=ExtResource("7_tw32q")]
+offset_left = -96.0
+offset_top = -81.0
+offset_right = 96.0
+offset_bottom = -54.0
+
+[connection signal="hit_landed" from="HurtBoxArea2D" to="." method="_on_hurt_box_area_2d_hit_landed"]
+[connection signal="selection_changed" from="SelectableArea2D" to="." method="_on_selectable_area_2d_selection_changed"]
