@@ -16,3 +16,12 @@ Adding a description that's visible in the editor can be achieved via `##` comme
 ```
 
 Breakpoints! So easy to apply in Godot editor, to freeze + inspect state. Use em.
+
+--
+
+WHOA: til cmd+shift+p palette exists in Godot! This will make finding all kinds of shortcuts handier.
+
+There are many other great shortcuts.
+
+- `cmd+shift+o` to quick open a scene
+- `cmd+opt+o` to quick open a gdscript

@@ -1,0 +1,42 @@
+[gd_scene load_steps=4 format=3 uid="uid://cvfkwx3g25fy0"]
+
+[ext_resource type="PackedScene" uid="uid://ddjx10yf3vpwp" path="res://Actors/Enemies/Enemy.tscn" id="1_48hx8"]
+
+[sub_resource type="Curve2D" id="Curve2D_kbx2f"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 75, 107, 0, 0, 0, 0, 228, 329, 0, 0, 0, 0, 301, 257, 0, 0, 0, 0, 429, 358, 0, 0, 0, 0, 558, 286, 0, 0, 0, 0, 1347, 723)
+}
+point_count = 6
+
+[sub_resource type="GDScript" id="GDScript_uwd2s"]
+resource_name = "EnemyTest"
+script/source = "extends Path2D
+
+# This a \"built-in\" script. What's that?
+# Seems like it embeds the script's text in the .tscn file as a node. 
+# Since that node contains code, it must be escaped.
+# I'm comfortable with version control and organizing files so... I don't like it :D
+# It also doesn't play well if I use an external editor like VSCode to edit scripts.
+# More context:
+# https://github.com/godotengine/godot/issues/31758
+func _ready():
+	var scene_tree := get_tree()
+	var enemy := $Enemy
+	
+	await scene_tree.create_timer(0.5).timeout
+	
+	enemy.move()
+
+	# for i in range(5): 
+	for i in 5: # whoa ! implicit syntax for `for i in range(5)`
+			await scene_tree.create_timer(1.0).timeout
+			enemy.health -= 1
+"
+
+[node name="EnemyTest" type="Path2D"]
+curve = SubResource("Curve2D_kbx2f")
+script = SubResource("GDScript_uwd2s")
+
+[node name="Enemy" parent="." instance=ExtResource("1_48hx8")]
+position = Vector2(75, 107)
+rotation = 0.967363
