@@ -11,7 +11,9 @@ signal finished
 ## Delay in seconds between spawn of two enemies
 @export_range(0.1, 5.0, 0.05) var enemy_time_interval := 0.5
 
+
 func start():
+	print("start()")
 	emit_signal("starting")
 	_setup_enemies()
 	_move_enemies()
@@ -35,7 +37,9 @@ func is_wave_finished():
 	return get_child_count() < 1
 	
 func _on_enemy_tree_exited():
-	pass
+	if is_wave_finished():
+		emit_signal("finished")
+		queue_free()
 
 func _ready():
 	if TESTING:

@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://drey6yty40nh1"]
+
+[ext_resource type="PackedScene" uid="uid://ddjx10yf3vpwp" path="res://Actors/Enemies/Enemy.tscn" id="1_l1hi5"]
+[ext_resource type="Script" path="res://Levels/Waves/Wave.gd" id="1_y4krf"]
+
+[sub_resource type="Curve2D" id="Curve2D_ira1e"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 128, 0, 0, 0, 0, 0, 256, 0, 0, 0, 0, 0, 512, 0, 0, 0, 0, 0, 512, 256)
+}
+point_count = 5
+
+[node name="WaveA" type="Path2D"]
+curve = SubResource("Curve2D_ira1e")
+script = ExtResource("1_y4krf")
+
+[node name="Enemy" parent="." instance=ExtResource("1_l1hi5")]
+
+[node name="Enemy2" parent="." instance=ExtResource("1_l1hi5")]
+
+[node name="Enemy3" parent="." instance=ExtResource("1_l1hi5")]
