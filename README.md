@@ -25,3 +25,12 @@ There are many other great shortcuts.
 
 - `cmd+shift+o` to quick open a scene
 - `cmd+opt+o` to quick open a gdscript
+
+--
+
+Could a small Godot editor mod take away a lot of script boilerplate writing?
+
+e.g.
+
+- `@onready` mapping to nodes (with ideal setup for type checking and editor autocomplete)
+- setting a `class_name` (why not always expose?)
