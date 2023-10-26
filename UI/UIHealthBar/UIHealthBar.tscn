@@ -1,51 +1,19 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=2 format=3 uid="uid://b4xkbq5kuu26r"]
 
-[ext_resource path="res://UI/UIHealthBar/heart.svg" type="Texture2D" id=1]
-
-[sub_resource type="StyleBoxFlat" id=1]
-bg_color = Color( 0.235294, 0.639216, 0.439216, 1 )
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color( 1, 1, 1, 1 )
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_radius_bottom_right = 8
-corner_radius_bottom_left = 8
-
-[sub_resource type="StyleBoxFlat" id=2]
-bg_color = Color( 0.278431, 0.231373, 0.470588, 1 )
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color( 1, 1, 1, 1 )
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_radius_bottom_right = 8
-corner_radius_bottom_left = 8
+[ext_resource type="Texture2D" uid="uid://kiyctuyftlfq" path="res://UI/UIHealthBar/heart.svg" id="1"]
 
 [node name="HealthBar" type="ProgressBar"]
 offset_right = 172.0
 offset_bottom = 18.0
-theme_override_styles/fg = SubResource( 1 )
-theme_override_styles/bg = SubResource( 2 )
 step = 1.0
 value = 50.0
-percent_visible = false
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
 offset_left = -56.0
 offset_top = -14.0
 offset_right = -8.0
 offset_bottom = 34.0
-texture = ExtResource( 1 )
-expand = true
+texture = ExtResource("1")
+expand_mode = 1
 stretch_mode = 6
-__meta__ = {
-"_edit_use_anchors_": false
-}

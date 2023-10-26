@@ -38,13 +38,14 @@ bullet_scene = ExtResource("2_00uel")
 position = Vector2(64, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(10, 2.08165e-12)
 texture = ExtResource("1_jq50j")
 offset = Vector2(40, 2.08165e-12)
 region_enabled = true
 region_rect = Rect2(192, 176, 54, 18)
 
 [node name="RangeArea2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
 
 [node name="Circle2D" type="CollisionShape2D" parent="RangeArea2D"]
 shape = SubResource("CircleShape2D_nk4w6")

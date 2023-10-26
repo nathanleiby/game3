@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cvygsfnqhifvw" path="res://Actors/Enemies/CutoutCharacter.tscn" id="1_x6qxr"]
 [ext_resource type="PackedScene" uid="uid://c70xqlwusyym5" path="res://Objects/HurtBox/hurt_box_area_2d.tscn" id="2_011yi"]
 [ext_resource type="PackedScene" uid="uid://b6hkhjgi4n5ia" path="res://Objects/HitBox/HitBoxArea2D.tscn" id="3_mu37h"]
-[ext_resource type="PackedScene" path="res://UI/UIHealthBar/UIHealthBar.tscn" id="5_runwb"]
+[ext_resource type="PackedScene" uid="uid://b4xkbq5kuu26r" path="res://UI/UIHealthBar/UIHealthBar.tscn" id="5_runwb"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lkbui"]
 radius = 35.0

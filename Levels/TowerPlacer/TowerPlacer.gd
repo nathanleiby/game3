@@ -63,7 +63,6 @@ func _unhandled_input(event: InputEvent):
 	
 func _snap_tower_to_grid():
 	_current_cell = local_to_map(get_global_mouse_position())
-	print("current_cell = ", _current_cell)
 	_current_tower.global_position = map_to_local(_current_cell)
 	
 	

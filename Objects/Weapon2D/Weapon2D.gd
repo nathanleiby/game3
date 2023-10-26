@@ -1,7 +1,7 @@
 class_name Weapon2D
 extends Node2D
 
-const TESTING := false # Toggle to true and play this scene to explore shooting and animations
+@export var TESTING := false # Toggle to true and play this scene to explore shooting and animations
 
 signal fired
 
@@ -67,7 +67,7 @@ func _physics_process(_delta: float):
 				_range_preview.disappear()
 		return
 	
-	# Are there any targets in the Area2D? 
+	# Are there any targets in the Area2D?
 	var targets: Array = _range_area.get_overlapping_areas()
 	if targets.is_empty():
 		return

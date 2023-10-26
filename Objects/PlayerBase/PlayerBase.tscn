@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Objects/PlayerBase/PlayerBase.gd" id="1_w8676"]
 [ext_resource type="PackedScene" uid="uid://c70xqlwusyym5" path="res://Objects/HurtBox/hurt_box_area_2d.tscn" id="2_nyjqg"]
 [ext_resource type="PackedScene" uid="uid://dei45dkarmwdr" path="res://UI/UIUnit/UIUnit.tscn" id="3_ayv24"]
-[ext_resource type="PackedScene" path="res://UI/UIHealthBar/UIHealthBar.tscn" id="4_38wwv"]
+[ext_resource type="PackedScene" uid="uid://b4xkbq5kuu26r" path="res://UI/UIHealthBar/UIHealthBar.tscn" id="4_38wwv"]
 [ext_resource type="PackedScene" uid="uid://gtuwh7u5x2j6" path="res://Objects/SelectableArea2D/selectable_area_2d.tscn" id="5_1lesw"]
 [ext_resource type="PackedScene" path="res://UI/UIHealthBar/UITimedHealthBar.tscn" id="7_tw32q"]
 

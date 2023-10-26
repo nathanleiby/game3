@@ -20,7 +20,6 @@ signal died(gold_amount)
 	get:
 		return health
 
-
 @onready var _anim_player := $AnimationPlayer
 @onready var _cutout_anim_player := $CutoutCharacter/AnimationPlayer
 @onready var _ui_pivot := $UIPivot

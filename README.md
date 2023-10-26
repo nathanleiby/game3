@@ -34,3 +34,9 @@ e.g.
 
 - `@onready` mapping to nodes (with ideal setup for type checking and editor autocomplete)
 - setting a `class_name` (why not always expose?)
+
+--
+
+TODO:
+
+- [ ] Enemies are not taking damage as expected in the test `Level.tscn`. Targeting and collisions appear to be working as expected at a high level.
