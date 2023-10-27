@@ -53,7 +53,8 @@ func _get_astar_path() -> PackedVector2Array:
 	
 	return astar_path
 
-@export var offset := Vector2(32, 32)
+# @export var offset := Vector2(32, 32)
+@export var offset := Vector2(0, 0) # NOTE: this was centered for me..
 
 func get_walkable_path() -> PackedVector2Array:
 	var walkable_path := PackedVector2Array()

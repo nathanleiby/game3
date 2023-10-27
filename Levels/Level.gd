@@ -17,4 +17,4 @@ func _ready():
 	_astar_grid.walkable_cells = _tilemap.get_used_cells_by_id(0, WALKABLE_CELLS_SOURCE_ID)
 	_path_preview.points = _astar_grid.get_walkable_path()
 
-	
+	# TODO: next up is connecting this to the enemy path
